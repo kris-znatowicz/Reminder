@@ -1,0 +1,132 @@
+[Root]
+Most Recent Package=Pacchetto di installazione standard Reminder
+Most Recent Deploy=Distribuzione Web 2
+
+
+[Package|Pacchetto di installazione standard Reminder|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Pacchetto
+
+[Package|Pacchetto di installazione standard Reminder|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Pacchetto di installazione standard Reminder|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Pacchetto di installazione standard Reminder|Files Found]
+
+[Package|Pacchetto di installazione standard Reminder|Files Released]
+
+[Package|Pacchetto di installazione standard Reminder|Missing Dependency Information]
+
+[Package|Pacchetto di installazione standard Reminder|Out-of-Date Dependency Information]
+
+[Package|Pacchetto di installazione standard Reminder|Files Added]
+
+[Package|Pacchetto di installazione standard Reminder|Files Removed]
+
+[Package|Pacchetto di installazione standard Reminder|Files In Project]
+C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Reminder.exe=Yes
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\WINDOWS\system32\oleaut32.dll=Yes
+C:\WINDOWS\system32\olepro32.dll=Yes
+C:\WINDOWS\system32\asycfilt.dll=Yes
+C:\WINDOWS\system32\stdole2.tlb=Yes
+C:\Programmi\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\VB6IT.DLL=Yes
+C:\Programmi\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Programmi\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Programmi\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|Pacchetto di installazione standard Reminder|Configure Registry Files]
+Applicable=No
+
+[Package|Pacchetto di installazione standard Reminder|Configure Remote Servers]
+Applicable=No
+
+[Package|Pacchetto di installazione standard Reminder|Install Locations]
+C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Reminder.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+C:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Programmi\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB6IT.DLL=$(WinSysPath)
+C:\Programmi\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Programmi\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Programmi\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|Pacchetto di installazione standard Reminder|Configure Shared Files]
+Applicable=Yes
+C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Reminder.exe=No
+
+[Package|Pacchetto di installazione standard Reminder|Distribution]
+Type=single
+Size=
+Title=Reminder Installation
+
+[Package|Pacchetto di installazione standard Reminder|IconGroups]
+Group0=Reminder Installation
+PrivateGroup0=Vero
+Parent0=$(Programs)
+
+[Package|Pacchetto di installazione standard Reminder|Reminder Installation]
+Icon1=Reminder.exe
+Title1=Reminder Installation
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Pacchetto di installazione standard Reminder|Package]
+PackageFolder=C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Pacchetto
+ProjectFolder=C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER
+ServerSideCab=
+File1=C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Pacchetto\setup.exe
+File2=C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Pacchetto\Setup.Lst
+File3=C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Pacchetto\Reminder.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Deploy|Distribuzione in deployREM|Root]
+Package=Pacchetto di installazione standard Reminder
+Handler=PDWizard.FolderDplySubWiz
+Folder=C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\deployREM
+
+[Deploy|Distribuzione Web 1|Root]
+Package=Pacchetto di installazione standard Reminder
+Handler=PDWizard.WebPostDplySubWiz
+Folder=C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\deployREM
+
+[Deploy|Distribuzione Web 1|Package Files]
+C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Pacchetto\setup.exe=Yes
+C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Pacchetto\SETUP.LST=Yes
+C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Pacchetto\Reminder.CAB=Yes
+
+[Deploy|Distribuzione Web 1|Other Files and Folders]
+c:\documents and settings\proprietario\documenti\progetti di visual studio\reminder\pacchetto=
+
+[Deploy|Distribuzione Web 1|WebPost Site]
+URL=http://www.geosol.net
+Provider={8B14B770-748C-11D0-A309-00C04FD7CFC5}
+Explode=No
+
+[Deploy|Distribuzione Web 2|Root]
+Package=Pacchetto di installazione standard Reminder
+Handler=PDWizard.WebPostDplySubWiz
+Folder=C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\deployREM
+
+[Deploy|Distribuzione Web 2|Package Files]
+C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Pacchetto\setup.exe=Yes
+C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Pacchetto\SETUP.LST=Yes
+C:\Documents and Settings\Proprietario\Documenti\Progetti di Visual Studio\REMINDER\Pacchetto\Reminder.CAB=Yes
+
+[Deploy|Distribuzione Web 2|Other Files and Folders]
+c:\documents and settings\proprietario\documenti\progetti di visual studio\reminder\pacchetto=
+
+[Deploy|Distribuzione Web 2|WebPost Site]
+URL=http://www.geosol.net
+Provider={02B5E1D1-8B7C-11D0-AD45-00AA00A219AA}
+Explode=No

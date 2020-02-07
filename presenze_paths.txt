@@ -1,0 +1,6 @@
+P:\Z\ZNATOWIC.K\EXHIBITH\Presenze\2004\Rilevaz.Presenze Znatowicz Luglio 2004.xls
+P:\C\CARPENTI.F\EXHIBIT\Presenze\2004\Carpentiero_Federico_Presenze_Luglio_2004.xls
+P:\C\CASTELLI.G\EXHIBIT\Presenze\Rilevaz.Presenze Castellini Luglio 2004.xls
+P:\N\NORRIS.M\EXHIBIT\Presenze\Rilevaz.Presenze Mark_Luglio 2004.xls
+X:\MEDICAL\R33W\Private\CoE_Utils\FTE_CoE_Tracking.xls
+add a calendar ctl to reminder project to handle opening of presenze,must standardise naming convention

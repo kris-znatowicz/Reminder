@@ -1,0 +1,323 @@
+Option Explicit
+
+Private Sub cmdOK_Click()
+Unload Me
+End Sub
+
+-------------------------------
+
+Private Sub cmdStop_Click()
+Dim Response
+Response = MsgBox("Are you sure you want to exit?", vbYesNo)
+
+    If Response = vbYes Then
+        
+        Unload Me
+        End
+    End If
+        
+End Sub
+
+-----------------------------------
+
+Private Sub Form_Load()
+
+'the form must be fully visible before calling Shell_NotifyIcon
+       Me.Show
+       Me.Refresh
+       With nid
+        .cbSize = Len(nid)
+        .hwnd = Me.hwnd
+        .uId = vbNull
+        .uFlags = NIF_ICON Or NIF_TIP Or NIF_MESSAGE
+        .uCallBackMessage = WM_MOUSEMOVE
+        .hIcon = Me.Icon
+        .szTip = "Reminder" & vbNullChar
+       End With
+       Shell_NotifyIcon NIM_ADD, nid
+
+StartTimer
+
+If CDbl(Mid(Now(), 11, 6)) > 735 And CDbl(Mid(Now(), 11, 6)) < 800 Then
+    Beep
+    MsgBox "Sei in ritardo! Dovresti ricuperare il tempo stasera."
+End If
+If CDbl(Mid(Now(), 11, 6)) > 835 And CDbl(Mid(Now(), 11, 6)) < 900 Then
+    Beep
+    MsgBox "Sei in ritardo! Dovresti ricuperare il tempo stasera."
+End If
+If CDbl(Mid(Now(), 11, 6)) > 935 And CDbl(Mid(Now(), 11, 6)) < 1000 Then
+    Beep
+    MsgBox "Sei in ritardo! Dovresti ricuperare il tempo stasera."
+End If
+
+Remind
+
+Me.Hide
+End Sub
+-----------------------------------------------------------------------
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As _
+         Single, Y As Single)
+      'this procedure receives the callbacks from the System Tray icon.
+      Dim Result As Long
+      Dim msg As Long
+       'the value of X will vary depending upon the scalemode setting
+       If Me.ScaleMode = vbPixels Then
+        msg = X
+       Else
+        msg = X / Screen.TwipsPerPixelX
+       End If
+       Select Case msg
+        Case WM_LBUTTONUP        '514 restore form window
+         Me.WindowState = vbNormal
+         Result = SetForegroundWindow(Me.hwnd)
+         Me.Show
+        Case WM_LBUTTONDBLCLK    '515 restore form window
+         Me.WindowState = vbNormal
+         Result = SetForegroundWindow(Me.hwnd)
+         Me.Show
+        Case WM_RBUTTONUP        '517 display popup menu
+         Result = SetForegroundWindow(Me.hwnd)
+         Me.PopupMenu Me.mPopupSys
+       End Select
+      End Sub
+   
+      Private Sub Form_Resize()
+       'this is necessary to assure that the minimized window is hidden
+       If Me.WindowState = vbMinimized Then Me.Hide
+      End Sub
+   
+      Private Sub Form_Unload(Cancel As Integer)
+       'this removes the icon from the system tray
+       EndTimer
+       
+       EndTimer2
+       Shell_NotifyIcon NIM_DELETE, nid
+      End Sub
+   
+
+----------------------------------------------------------------
+
+Private Sub mnuGeoSol_Click()
+Dim URL As String
+Dim IE As Object
+
+Set IE = CreateObject("InternetExplorer.Application")
+
+URL = "http://www.geosol.net"
+    
+    IE.Visible = True
+    IE.Navigate (URL)
+End Sub
+
+      Private Sub mPopExit_Click()
+       'called when user clicks the popup menu Exit command
+       Unload Me
+       End
+      End Sub
+   
+Private Sub mPopMinimise_Click()
+Me.Hide
+End Sub
+------------------------------------------------------------------
+      Private Sub mPopRestore_Click()
+       'called when the user clicks the popup menu Restore command
+       Me.WindowState = vbNormal
+       Result = SetForegroundWindow(Me.hwnd)
+       Me.Show
+      End Sub
+
+------------------------------------------------------------------
+
+Option Explicit
+
+
+Public Declare Function SetTimer Lib "user32" ( _
+    ByVal hwnd As Long, ByVal nIDEvent As Long, _
+    ByVal uElapse As Long, ByVal lpTimerFunc As Long) As Long
+Public Declare Function KillTimer Lib "user32" ( _
+    ByVal hwnd As Long, ByVal nIDEvent As Long) As Long
+
+Public TimerID As Long
+Public TimerSeconds As Single
+
+
+Public TimerID2 As Long
+Public TimerSeconds2 As Single
+
+ 'user defined type required by Shell_NotifyIcon API call
+      Public Type NOTIFYICONDATA
+       cbSize As Long
+       hwnd As Long
+       uId As Long
+       uFlags As Long
+       uCallBackMessage As Long
+       hIcon As Long
+       szTip As String * 64
+      End Type
+
+
+      'constants required by Shell_NotifyIcon API call:
+      Public Const NIM_ADD = &H0
+      Public Const NIM_MODIFY = &H1
+      Public Const NIM_DELETE = &H2
+      Public Const NIF_MESSAGE = &H1
+      Public Const NIF_ICON = &H2
+      Public Const NIF_TIP = &H4
+      Public Const WM_MOUSEMOVE = &H200
+      Public Const WM_LBUTTONDOWN = &H201     'Button down
+      Public Const WM_LBUTTONUP = &H202       'Button up
+      Public Const WM_LBUTTONDBLCLK = &H203   'Double-click
+      Public Const WM_RBUTTONDOWN = &H204     'Button down
+      Public Const WM_RBUTTONUP = &H205       'Button up
+      Public Const WM_RBUTTONDBLCLK = &H206   'Double-click
+   
+      Public Declare Function SetForegroundWindow Lib "user32" _
+      (ByVal hwnd As Long) As Long
+      Public Declare Function Shell_NotifyIcon Lib "shell32" _
+      Alias "Shell_NotifyIconA" _
+      (ByVal dwMessage As Long, pnid As NOTIFYICONDATA) As Boolean
+   
+      Public nid As NOTIFYICONDATA
+
+-----------------------------------------------------
+Public Sub Remind()
+'Dim JavaCup
+Dim Response
+Dim EX1 As Object
+Dim tracking As String
+Dim URLmaria As String
+'Dim URLgiorgio As String
+'Dim URLfred As String
+'Dim URLkris As String
+'Dim URLluca As String
+'Dim URLfranc As String
+Dim IE As Object
+Set EX1 = CreateObject("Excel.Application")
+Set IE = CreateObject("InternetExplorer.Application")
+'URLluca = "P:\B\BRUNO.L\EXHIBIT\Presenze"
+URLmaria = "P:\G\GALASSO.MR\EXHIBIT\Presenze"
+'URLgiorgio = "P:\C\CASTELLI.G\EXHIBIT\Presenze"
+'URLfred = "P:\C\CARPENTI.F\EXHIBIT\Presenze"
+'URLkris = "P:\Z\ZNATOWIC.K\EXHIBITH\Presenze"
+'URLfranc = "P:\U\UNCINI.F\EXHIBIT\Presenze"
+ tracking = "X:\MEDICAL\R33W\Private\CoE_Utils\FTE Tracking\FTE_CoE_Tracking.xls"
+ 
+If CDbl(Mid(Now(), 11, 6)) = 1030 Or CDbl(Mid(Now(), 11, 6)) = 1530 Then
+    Beep
+    frmCoffee.Show
+End If
+
+
+If CDbl(Mid(Now(), 11, 6)) = 1230 Or CDbl(Mid(Now(), 11, 6)) = 1330 Then
+    Beep
+    MsgBox "Lunch time.", vbMsgBoxSetForeground
+End If
+
+If CDbl(Mid(Now(), 11, 6)) >= 1620 And CDbl(Mid(Now(), 11, 6)) < 1720 Then
+    EndTimer
+    EndTimer2
+    StartTimer2
+    Beep
+    Response = MsgBox("Open FTE_CoE_Tracking.xls and Cartella Presenze?", vbYesNo + vbMsgBoxSetForeground + vbApplicationModal)
+        If Response = vbYes Then
+            EX1.Application.Visible = True
+            EX1.Application.Workbooks.Open (tracking)
+            pausa (1)
+            IE.Visible = True
+            IE.Navigate (URLmaria)
+
+            
+            Unload frmReminder
+            End
+        End If
+End If
+
+If CDbl(Mid(Now(), 11, 6)) >= 1720 And CDbl(Mid(Now(), 11, 6)) < 1820 Then ''Or CDbl(Mid(Now(), 11, 6)) >= t2 Or CDbl(Mid(Now(), 11, 6)) >= t3 Then
+     Beep
+     Response = MsgBox("Open FTE_CoE_Tracking.xls and Cartella Presenze?", vbYesNo + vbMsgBoxSetForeground + vbApplicationModal)
+     If Response = vbYes Then
+         
+         EX1.Application.Visible = True
+         EX1.Application.Workbooks.Open (tracking)
+         pausa (1)
+         IE.Visible = True
+         IE.Navigate (URLmaria)
+ 
+         Unload frmReminder
+         End
+     
+
+     End If
+End If
+            
+
+If CDbl(Mid(Now(), 11, 6)) >= 1820 Then
+    Beep
+    MsgBox "Opening FTE_CoE_Tracking.xls. & Presenze folder. Reminder will terminate now. Vai a casa :o)"
+    'open excel files
+    
+    EX1.Application.Visible = True
+            EX1.Application.Workbooks.Open (tracking) '("\\Xfsvr02\MEDICAL\R33W\Private\CoE_Utils\FTE_CoE_Tracking.xls")
+            pausa (1)
+            IE.Visible = True
+                IE.Navigate (URLmaria)
+                
+            
+            Unload frmReminder
+            End
+    
+End If
+
+End Sub
+----------------------------------------------------------
+Public Sub StartTimer()
+    TimerSeconds = 60 ' how often to "pop" the timer.
+    TimerID = SetTimer(0&, 0&, TimerSeconds * 1000&, AddressOf TimerProc)
+End Sub
+-----------------------------------------------------------------
+Public Sub EndTimer()
+    On Error Resume Next
+    KillTimer 0&, TimerID
+End Sub
+-----------------------------------------------------
+Public Sub TimerProc(ByVal hwnd As Long, ByVal uMsg As Long, _
+    ByVal nIDEvent As Long, ByVal dwTimer As Long)
+    '
+    ' The procedure is called by Windows. 
+    ' timer-related code here.
+    '
+    Call Remind
+
+End Sub
+---------------------------------------------
+Public Sub StartTimer2()
+    TimerSeconds2 = 3600 ' how often to "pop" the timer.
+    TimerID2 = SetTimer(0&, 0&, TimerSeconds2 * 1000&, AddressOf TimerProc2)
+End Sub
+-----------------------------------------------
+Public Sub EndTimer2()
+    On Error Resume Next
+    KillTimer 0&, TimerID2
+End Sub
+---------------------------------------------
+Public Sub TimerProc2(ByVal hwnd As Long, ByVal uMsg As Long, _
+    ByVal nIDEvent As Long, ByVal dwTimer As Long)
+    '
+    ' The procedure is called by Windows. 
+    ' timer-related code here.
+    '
+    Call Remind
+
+End Sub
+-------------------------------------
+Public Sub pausa(k As Integer)
+Dim i As Double
+    'waste time
+    i = Timer + k
+    Do While Timer < i
+    Loop
+
+End Sub
+
+

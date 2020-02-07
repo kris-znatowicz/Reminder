@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UpgradeLog>
+    <Settings>
+        <Setting
+            Name = "LogFile"
+            Value = "Reminder.log"
+        />
+        <Setting
+            Name = "GenerateInterfacesForClasses"
+            Value = "FALSE"
+        />
+        <Setting
+            Name = "ProjectName"
+            Value = "Reminder"
+        />
+        <Setting
+            Name = "OutputName"
+            Value = "Reminder.vbproj"
+        />
+        <Setting
+            Name = "OutputDir"
+            Value = "C:\Documents and Settings\Proprietario\Documenti\reminder\Reminder.NET"
+        />
+        <Setting
+            Name = "ProjectPath"
+            Value = "C:\Documents and Settings\Proprietario\Documenti\reminder\Reminder.vbp"
+        />
+        <Setting
+            Name = "MigrateProjectTo"
+            Value = "0"
+        />
+    </Settings>
+    <File
+        OldPath = "C:\Documents and Settings\Proprietario\Documenti\reminder\frmReminder.frm"
+        NewPath = "C:\Documents and Settings\Proprietario\Documenti\reminder\Reminder.NET\frmReminder.vb"
+        FileType = "Form"
+        Upgraded = "True"
+    />
+    <File
+        OldPath = "C:\Documents and Settings\Proprietario\Documenti\reminder\Module1.bas"
+        NewPath = "C:\Documents and Settings\Proprietario\Documenti\reminder\Reminder.NET\Module1.vb"
+        FileType = "Module"
+        Upgraded = "True"
+    >
+        <Section Name = "Remind" >
+            <Issue
+                Type = "Runtime"
+                Number = "1037"
+            >Impossibile risolvere la proprietà predefinita dell'oggetto Response.</Issue>
+        </Section>
+        <Section Name = "wait" >
+            <Issue
+                Type = "Runtime"
+                Number = "1037"
+            >Impossibile risolvere la proprietà predefinita dell'oggetto t1.</Issue>
+            <Issue
+                Type = "Runtime"
+                Number = "1037"
+            >Impossibile risolvere la proprietà predefinita dell'oggetto t2.</Issue>
+        </Section>
+    </File>
+</UpgradeLog>
+
