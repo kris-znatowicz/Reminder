@@ -80,22 +80,22 @@ Dim Response
 't3 = 1825
 
 
-If CDbl(Mid(Now(), 11, 6)) > 1030 And CDbl(Mid(Now(), 11, 6)) < 1040 Then
+If (Mid(Now(), 11, 6)) > "10:30" And (Mid(Now(), 11, 6)) < "10:40" Then
     Beep
     MsgBox "Coffee break."
 End If
 
-If CDbl(Mid(Now(), 11, 6)) > 1530 And CDbl(Mid(Now(), 11, 6)) < 1540 Then
+If (Mid(Now(), 11, 6)) > "15:30" And (Mid(Now(), 11, 6)) < "15:40" Then
     Beep
     MsgBox "Coffee break."
 End If
 
-If CDbl(Mid(Now(), 11, 6)) > 1230 And CDbl(Mid(Now(), 11, 6)) < 1430 Then
+If (Mid(Now(), 11, 6)) > "12:30" And (Mid(Now(), 11, 6)) < "14:30" Then
     Beep
     MsgBox "Lunch time."
 End If
 
-If CDbl(Mid(Now(), 11, 6)) >= 1625 Then ''Or CDbl(Mid(Now(), 11, 6)) >= t2 Or CDbl(Mid(Now(), 11, 6)) >= t3 Then
+If (Mid(Now(), 11, 6)) >= "16:25" Then ''Or (Mid(Now(), 11, 6)) >= t2 Or (Mid(Now(), 11, 6)) >= t3 Then
     Beep
     Response = MsgBox("Open Foglio Presenze?", vbYesNo + vbMsgBoxSetForeground + vbApplicationModal)
         If Response = vbYes Then
@@ -115,7 +115,7 @@ If CDbl(Mid(Now(), 11, 6)) >= 1625 Then ''Or CDbl(Mid(Now(), 11, 6)) >= t2 Or CD
             'Reminder.ThisWorkbook.Close
         Else
             If Response = vbNo Then
-               If CDbl(Mid(Now(), 11, 6)) >= 1725 Then ''Or CDbl(Mid(Now(), 11, 6)) >= t2 Or CDbl(Mid(Now(), 11, 6)) >= t3 Then
+               If (Mid(Now(), 11, 6)) >= "17:25" Then ''Or (Mid(Now(), 11, 6)) >= t2 Or (Mid(Now(), 11, 6)) >= t3 Then
                     Beep
                     Response = MsgBox("Open Foglio Presenze?", vbYesNo + vbMsgBoxSetForeground + vbApplicationModal)
                     If Response = vbYes Then
@@ -146,7 +146,7 @@ If CDbl(Mid(Now(), 11, 6)) >= 1625 Then ''Or CDbl(Mid(Now(), 11, 6)) >= t2 Or CD
         End If
 End If
 
-If CDbl(Mid(Now(), 11, 6)) >= 1825 Then
+If (Mid(Now(), 11, 6)) >= "18:25" Then
     Beep
     MsgBox "Opening FTE_CoE_Tracking.xls. Manually open Foglio Presenze please. Reminder will terminate now. Vai a casa :o)"
     'open excel files

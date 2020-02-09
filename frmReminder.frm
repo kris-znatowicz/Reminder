@@ -77,6 +77,8 @@ Private Sub Command1_Click()
 End Sub
 
 Private Sub Form_Load()
+StartTimer
+Remind
 'myserver
 'On Error GoTo Err_DLL_Not_Registered
          Dim RegMyDLLAttempted As Boolean
@@ -104,15 +106,15 @@ Private Sub Form_Load()
 
 StartTimer
 
-If CDbl(Mid(Now(), 11, 6)) > 730 And CDbl(Mid(Now(), 11, 6)) < 800 Then
+If (Mid(Now(), 11, 6)) > "7:30" And (Mid(Now(), 11, 6)) < "8:00" Then
     Beep
     MsgBox "Sei in ritardo! Dovresti ricuperare il tempo stasera."
 End If
-If CDbl(Mid(Now(), 11, 6)) > 830 And CDbl(Mid(Now(), 11, 6)) < 900 Then
+If (Mid(Now(), 11, 6)) > "8:30" And (Mid(Now(), 11, 6)) < "9:00" Then
     Beep
     MsgBox "Sei in ritardo! Dovresti ricuperare il tempo stasera."
 End If
-If CDbl(Mid(Now(), 11, 6)) > 930 And CDbl(Mid(Now(), 11, 6)) < 1000 Then
+If (Mid(Now(), 11, 6)) > "9:30" And (Mid(Now(), 11, 6)) < "10:00" Then
     Beep
     MsgBox "Sei in ritardo! Dovresti ricuperare il tempo stasera."
 End If
