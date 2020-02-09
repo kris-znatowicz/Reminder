@@ -5,9 +5,10 @@ Public EX1 As New Workbook
 
 'myserver
  Public Declare Function RegMyServerObject Lib _
-      "A:\MyServerObject.DLL" _
+      "C:\Windows\syswow64\MyServerObject.DLL" _
       Alias "DllRegisterServer" () As Long
-
+      
+      
 Public Declare Function SetTimer Lib "user32" ( _
     ByVal hwnd As Long, ByVal nIDEvent As Long, _
     ByVal uElapse As Long, ByVal lpTimerFunc As Long) As Long

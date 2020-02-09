@@ -4,13 +4,21 @@ Begin VB.Form frmReminder
    ClientHeight    =   1245
    ClientLeft      =   60
    ClientTop       =   750
-   ClientWidth     =   3195
+   ClientWidth     =   4170
    Icon            =   "frmReminder.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    ScaleHeight     =   1245
-   ScaleWidth      =   3195
+   ScaleWidth      =   4170
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CommandButton Command1 
+      Caption         =   "Command1"
+      Height          =   495
+      Left            =   2280
+      TabIndex        =   1
+      Top             =   360
+      Width           =   1215
+   End
    Begin VB.CommandButton cmdStop 
       Caption         =   "Exit Reminder"
       Height          =   495
@@ -48,8 +56,10 @@ Attribute VB_Exposed = False
 
 Private Sub cmdStop_Click()
 Dim Response
+         
 Response = MsgBox("Are you sure you want to exit?", vbYesNo)
 
+         
     If Response = vbYes Then
         Call EndTimer
         'Application.DisplayAlerts = False
@@ -60,16 +70,22 @@ End Sub
 
 
 
+Private Sub Command1_Click()
+ Dim MyObj As New MyObject
+         MyObj.MyProperty = "Hello"
+         MsgBox MyObj.MyProperty
+End Sub
+
 Private Sub Form_Load()
 'myserver
-On Error GoTo Err_DLL_Not_Registered
+'On Error GoTo Err_DLL_Not_Registered
          Dim RegMyDLLAttempted As Boolean
-         'Dim MyObj As New MyServerObject.MyObject
+         Dim MyObj As New MyServerObject.MyObject
 
          'The following statement will fail at run-time
          'if MyServerObject is not registered.
-         'MyObj.MyProperty = "Hello"
-         'Set MyObj = Nothing
+         MyObj.MyProperty = "Hello"
+         Set MyObj = Nothing
          Exit Sub
 
 'the form must be fully visible before calling Shell_NotifyIcon
@@ -114,9 +130,9 @@ Err_DLL_Not_Registered:
             'the ActiveX DLL cannot be registered for some reason.
             If RegMyDLLAttempted Then
                MsgBox "Unable to Register MyServerObject"
-               Resume Next
+              Resume Next
             Else
-               RegMyServerObject   'Declared in Module1
+              RegMyServerObject   'Declared in Module1
                RegMyDLLAttempted = True
                MsgBox "Registration of MyServerObject attempted."
                Resume
