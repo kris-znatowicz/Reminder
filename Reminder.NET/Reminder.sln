@@ -1,21 +1,24 @@
-Microsoft Visual Studio Solution File, Format Version 7.00
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Reminder", "Reminder.vbproj", "{4347D361-102C-48B9-90AA-98778FE08C79}"
 EndProject
 Global
-	GlobalSection(SolutionConfiguration) = preSolution
-		ConfigName.0 = Debug
-		ConfigName.1 = Release
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectDependencies) = postSolution
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4347D361-102C-48B9-90AA-98778FE08C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4347D361-102C-48B9-90AA-98778FE08C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4347D361-102C-48B9-90AA-98778FE08C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4347D361-102C-48B9-90AA-98778FE08C79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectConfiguration) = postSolution
-		{4347D361-102C-48B9-90AA-98778FE08C79}.Debug.ActiveCfg = Debug|.NET
-		{4347D361-102C-48B9-90AA-98778FE08C79}.Debug.Build.0 = Debug|.NET
-		{4347D361-102C-48B9-90AA-98778FE08C79}.Release.ActiveCfg = Release|.NET
-		{4347D361-102C-48B9-90AA-98778FE08C79}.Release.Build.0 = Release|.NET
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-	EndGlobalSection
-	GlobalSection(ExtensibilityAddIns) = postSolution
+		SolutionGuid = {F389924C-7480-4195-B8EC-B2539E62A05E}
 	EndGlobalSection
 EndGlobal

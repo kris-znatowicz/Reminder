@@ -106,15 +106,15 @@ Remind
 
 StartTimer
 
-If (Mid(Now(), 11, 6)) > "7:30" And (Mid(Now(), 11, 6)) < "8:00" Then
+If Mid(Now(), 11, 6) > "7:30" And Mid(Now(), 11, 6) < "8:00" Then
     Beep
     MsgBox "Sei in ritardo! Dovresti ricuperare il tempo stasera."
 End If
-If (Mid(Now(), 11, 6)) > "8:30" And (Mid(Now(), 11, 6)) < "9:00" Then
+If Mid(Now(), 11, 6) > "8:30" And Mid(Now(), 11, 6) < "9:00" Then
     Beep
     MsgBox "Sei in ritardo! Dovresti ricuperare il tempo stasera."
 End If
-If (Mid(Now(), 11, 6)) > "9:30" And (Mid(Now(), 11, 6)) < "10:00" Then
+If Mid(Now(), 11, 6) > "9:30" And Mid(Now(), 11, 6) < "10:00" Then
     Beep
     MsgBox "Sei in ritardo! Dovresti ricuperare il tempo stasera."
 End If

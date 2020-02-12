@@ -1,0 +1,10 @@
+C:\Users\xfx0776\OneDrive - Eli Lilly and Company\Documents\Reminder\Reminder.NET\bin\Progetto1.exe
+C:\Users\xfx0776\OneDrive - Eli Lilly and Company\Documents\Reminder\Reminder.NET\bin\Progetto1.pdb
+C:\Users\xfx0776\OneDrive - Eli Lilly and Company\Documents\Reminder\Reminder.NET\bin\Progetto1.xml
+C:\Users\xfx0776\OneDrive - Eli Lilly and Company\Documents\Reminder\Reminder.NET\obj\Debug\Reminder.vbprojAssemblyReference.cache
+C:\Users\xfx0776\OneDrive - Eli Lilly and Company\Documents\Reminder\Reminder.NET\obj\Debug\Progetto1.frmReminder.resources
+C:\Users\xfx0776\OneDrive - Eli Lilly and Company\Documents\Reminder\Reminder.NET\obj\Debug\Reminder.vbproj.GenerateResource.cache
+C:\Users\xfx0776\OneDrive - Eli Lilly and Company\Documents\Reminder\Reminder.NET\obj\Debug\Reminder.vbproj.CoreCompileInputs.cache
+C:\Users\xfx0776\OneDrive - Eli Lilly and Company\Documents\Reminder\Reminder.NET\obj\Debug\Progetto1.exe
+C:\Users\xfx0776\OneDrive - Eli Lilly and Company\Documents\Reminder\Reminder.NET\obj\Debug\Progetto1.xml
+C:\Users\xfx0776\OneDrive - Eli Lilly and Company\Documents\Reminder\Reminder.NET\obj\Debug\Progetto1.pdb

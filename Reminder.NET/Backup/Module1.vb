@@ -14,11 +14,11 @@ Module Module1
         t2 = 1830
         't3 = 1825
 
-        If Mid(CStr(Now), 11, 6) >= t2 Then
+        If CDbl(Mid(CStr(Now), 11, 6)) >= t2 Then
             End
         End If
 
-        If Mid(CStr(Now), 11, 6) >= t1 Then 'Or CDbl(Mid(CStr(Now), 11, 6)) = t2 Or CDbl(Mid(CStr(Now), 11, 6)) = t3 Then
+        If CDbl(Mid(CStr(Now), 11, 6)) >= t1 Then 'Or CDbl(Mid(CStr(Now), 11, 6)) = t2 Or CDbl(Mid(CStr(Now), 11, 6)) = t3 Then
             'UPGRADE_WARNING: Impossibile risolvere la proprietà predefinita dell'oggetto Response. Fare clic qui per ulteriori informazioni: 'ms-help://MS.VSCC/commoner/redir/redirect.htm?keyword="vbup1037"'
             Response = MsgBox("Open FTE_CoE_Tracking and Foglio Presenze?", MsgBoxStyle.YesNo + MsgBoxStyle.MsgBoxSetForeground + MsgBoxStyle.ApplicationModal, "Reminder")
             If Response = MsgBoxResult.Yes Then
